@@ -7,7 +7,12 @@ import './style.css'
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
-const ball = new Ball(canvas.width / 2, canvas.height - 30, 10, 10, "#0095DD", 2, -2);
+let startX = Math.floor(Math.random() * (canvas.width / 2)) + (canvas.width / 4);
+let startY = Math.floor(Math.random() * (canvas.height / 4)) + (canvas.height / 2);
+let dX = ((Math.floor(Math.random() * 2)) == 1) ? -2:2;
+console.log (dX);
+
+const ball = new Ball(startX, startY, 10, 10, "#0095DD", dX, -2);
 const paddle = new Paddle((canvas.width - 10) / 2, canvas.height - 10, 75, 10, "#0095DD");
 
 const brickRowCount = 3;
