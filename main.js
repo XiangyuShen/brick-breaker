@@ -56,6 +56,7 @@ function draw() {
       if (score >= 10 && speedUp == false) {
         ball.dx *= 2;
         ball.dy *= 2;
+        speedup = true;
       }
     }
   });
