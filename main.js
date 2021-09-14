@@ -27,12 +27,18 @@ for (let c = 0; c < brickColumnCount; c++) {
   }
 }
 
+let score = 0;
 let isGameOver = false;
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Score: " + score, 8, 20);
+
   ball.draw(ctx);
   ball.move();
+  ball.colides(paddle);
   isGameOver = !ball.bounce(canvas.width, canvas.height);
 
   paddle.draw(ctx);
@@ -40,7 +46,9 @@ function draw() {
 
   bricks.forEach((brick) => {
     brick.draw(ctx);
-    brick.colides(ball);
+    if (brick.colides(ball)) {
+      score++
+    }
   });
 
   if (!isGameOver) {
