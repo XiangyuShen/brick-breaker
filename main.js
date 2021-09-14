@@ -54,8 +54,8 @@ function draw() {
     if (brick.colides(ball)) {
       score++;
       if (score >= 10 && speedUp == false) {
-        dx *= 2;
-        dy *= 2;
+        ball.dx *= 2;
+        ball.dy *= 2;
       }
     }
   });
