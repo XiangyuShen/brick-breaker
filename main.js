@@ -34,6 +34,7 @@ for (let c = 0; c < brickColumnCount; c++) {
 
 let score = 0;
 let isGameOver = false;
+let speedUp = false;
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   
@@ -52,7 +53,11 @@ function draw() {
   bricks.forEach((brick) => {
     brick.draw(ctx);
     if (brick.colides(ball)) {
-      score++
+      score++;
+      if (score >= 10 && speedUp == false) {
+        dx *= 2;
+        dy *= 2;
+      }
     }
   });
 
