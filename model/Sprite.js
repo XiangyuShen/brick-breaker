@@ -12,3 +12,5 @@ class Sprite extends Block {
     this.y += this.dy;
   }
 }
+
+export default Sprite;
